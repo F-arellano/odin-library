@@ -54,7 +54,11 @@ function showLibrary () {
         pages.textContent = book.pages 
 
         const readed = document.createElement("td")
-        readed.textContent = book.readed 
+        const readedButton = document.createElement("button")
+        readedButton.classList.add("readed-button")
+        readedButton.setAttribute("value", book.readed)
+        readedButton.textContent = book.readed 
+        readed.appendChild(readedButton)
 
         const del = document.createElement("td")
         const delButton = document.createElement("button")

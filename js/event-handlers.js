@@ -19,29 +19,41 @@ function setDialog () {
         const title = document.querySelector("#title").value
         const author = document.querySelector("#author").value
         const pages = document.querySelector("#pages").value
-        const readed = document.querySelector("#readed").value
+        const readed = document.querySelector("#readed").checked
 
         addBookToLibrary(title, author, pages, readed)
         showLibrary()
-        setDelButtons()
+        setButtons()
         dialog.close()
     })
 }
 
-function setDelButtons () {
+function setButtons () {
     const delButtons = document.querySelectorAll(".del-button")
+    const readedButtons = document.querySelectorAll(".readed-button")
 
     for (let i=0; i< delButtons.length; i++) {
         const delButton = delButtons[i]
+
         delButton.addEventListener("click", () => {
             deleteBookFromLibrary(delButton.getAttribute("value"))
             showLibrary()
-            setDelButtons()
+            setButtons()
+        })
+    }
+
+    for (let i=0; i< delButtons.length; i++) {
+        const readedButton = readedButtons[i]
+
+        readedButton.addEventListener("click", () => {
+            const value = (readedButton.value === "true")
+            readedButton.textContent = !value
+            readedButton.value = !value
         })
     }
 }
 
 export {
     setDialog,
-    setDelButtons,
+    setButtons,
 }

@@ -1,4 +1,4 @@
-import { setDialog, setDelButtons } from "./event-handlers.js"
+import { setDialog, setButtons } from "./event-handlers.js"
 import { addBookToLibrary, showLibrary } from "./library.js"
 
 addBookToLibrary("the hobbit", "J. R. R. Tolkien", 295, true)
@@ -8,4 +8,4 @@ addBookToLibrary("Siddartha", "H. Hesse", 204, true)
 
 showLibrary()
 setDialog()
-setDelButtons()
+setButtons()
